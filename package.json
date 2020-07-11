@@ -1,0 +1,24 @@
+{
+  "name": "glexicon",
+  "private": true,
+  "scripts": {
+    "transpile": "tsc -b packages/tsconfig.json",
+    "clean": "lerna run clean --parallel"
+  },
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "lerna": "^3.22.1",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1",
+    "shx": "^0.3.2",
+    "typescript": "^3.9.6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
