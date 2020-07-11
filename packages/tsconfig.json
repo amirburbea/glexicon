@@ -3,6 +3,7 @@
   "references": [
     { "path": "server" },
     { "path": "objects" },
-    { "path": "react-app" }
+    { "path": "react-app" },
+    { "path": "angular-app" }
   ]
 }
