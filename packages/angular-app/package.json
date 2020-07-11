@@ -2,6 +2,8 @@
   "name": "@glexicon/angular-app",
   "version": "0.0.0",
   "scripts": {
+    "clean": "shx rm -rf out-tsc",
+    "transpile": "tsc -b",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",

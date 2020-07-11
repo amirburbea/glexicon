@@ -6,6 +6,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "clean": "shx rm -rf lib && shx rm -f tsconfig.tsbuildinfo",
+    "transpile": "tsc -b",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
