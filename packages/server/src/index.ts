@@ -108,6 +108,6 @@ async function getApplication() {
     });
 }
 
-getApplication().then(async app => {
+getApplication().then(app => {
   app.listen(8080, 'localhost', () => console.log('listening on 8080...'));
 });
