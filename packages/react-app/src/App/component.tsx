@@ -2,9 +2,9 @@ import classNames from 'classnames';
 import React, { FunctionComponent } from 'react';
 import { useLocation } from 'react-router';
 import { Link, Route, Switch } from 'react-router-dom';
-import { Edit } from '../Edit';
-import { Examine } from '../Examine';
-import { Home } from '../Home';
+import { Edit } from '../edit';
+import { Examine } from '../examine';
+import { Home } from '../home';
 import './styles.scss';
 
 const App: FunctionComponent = () => {

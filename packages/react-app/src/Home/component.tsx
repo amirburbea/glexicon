@@ -48,7 +48,7 @@ const Home: FunctionComponent = () => {
                 style={{ background: index % 2 ? '#F0F0F0' : '#909090' }}
                 key={id}
               >
-                <Link to={`Edit?id=${id}`}>
+                <Link to={`edit?id=${id}`}>
                   <h4 style={{ margin: '5px 0 0 0' }}>{name}</h4>
                 </Link>
                 <span style={{ fontSize: 14 }}>
