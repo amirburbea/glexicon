@@ -3,14 +3,17 @@
   "private": true,
   "scripts": {
     "transpile": "tsc -b packages/tsconfig.json",
-    "clean": "lerna run clean --parallel"
+    "clean": "lerna run clean --parallel",
+    "start": "yarn transpile && concurrently \"lerna run serveup --stream\", \"lerna run --scope '*/react-app' start\""
   },
   "devDependencies": {
+    "concurrently": "^5.2.0",
     "husky": "^4.2.5",
     "lerna": "^3.22.1",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
     "shx": "^0.3.2",
+    "tslib": "^2.0.0",
     "typescript": "^3.9.6"
   },
   "husky": {

@@ -3,10 +3,10 @@
     "composite": true,
     "declaration": true,
     "declarationMap": true,
-    "module": "commonjs",
     "outDir": "lib",
     "rootDir": "src"
   },
   "exclude": ["./lib/", "./node_modules/"],
-  "extends": "../tsconfig.base.json"
+  "extends": "../tsconfig.base.json",
+  "references": [{ "path": "../objects" }]
 }

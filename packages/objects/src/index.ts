@@ -1,3 +1,2 @@
-export * from './term';
-export * from './termData';
-export * from './getTermsResult';
+export * from './constructs';
+export * from './models';

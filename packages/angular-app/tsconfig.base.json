@@ -12,5 +12,5 @@
     "strictInjectionParameters": true,
     "strictTemplates": true
   },
-  "references": [{ "path": "../objects" }]
+  "references": [{ "path": "../objects" },{ "path": "../store" }]
 }
