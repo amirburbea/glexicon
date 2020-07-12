@@ -6,21 +6,38 @@
     margin: 8px auto;
   }
 
-  .results {
+  > .results {
     margin: 0 auto;
     width: 800px;
     border: black 1px solid;
 
-    > .even {
-      background-color: #f0f0f0;
-    }
+    > div {
+      &.even {
+        background-color: #f0f0f0;
+      }
 
-    > .odd {
-      background-color: #909090;
-    }
+      &.odd {
+        background-color: #909090;
+      }
 
-    a h4 {
-      margin: 5px 0 0 0;
+      > a {
+        > h4 {
+          margin: 5px 0 0 0;
+        }
+      }
+
+      > span {
+        font-size: 14;
+      }
+    }
+  }
+
+  > .pages {
+    margin: 0 auto;
+
+    > span {
+      font-weight: bold;
+      font-size: 14pt;
     }
   }
 }

@@ -5,6 +5,7 @@ import React, {
   useCallback,
   useEffect,
   useState,
+  Fragment,
 } from 'react';
 import { Link } from 'react-router-dom';
 import { preventDefault } from '../preventDefault';
@@ -49,7 +50,7 @@ const Home: FunctionComponent = () => {
                   <Link to={`edit?id=${id}`}>
                     <h4>{name}</h4>
                   </Link>
-                  <span style={{ fontSize: 14 }}>
+                  <span>
                     {description.length < 300
                       ? description
                       : `${description.substr(0, 300)}...`}
@@ -60,20 +61,18 @@ const Home: FunctionComponent = () => {
           : null}
       </div>
       {results ? (
-        <div style={{ margin: '0 auto' }}>
+        <div className="pages">
           {getRange(Math.ceil(results.total / PAGE_SIZE)).map(pageNumber => (
-            <span key={pageNumber}>
+            <Fragment key={pageNumber}>
               &nbsp;
               {results && results.page === pageNumber ? (
-                <span style={{ fontWeight: 'bold', fontSize: '14pt' }}>
-                  {pageNumber}
-                </span>
+                <span>{pageNumber}</span>
               ) : (
                 <a href="/#" onClick={goToPage.bind(undefined, pageNumber)}>
                   {pageNumber}
                 </a>
               )}
-            </span>
+            </Fragment>
           ))}
         </div>
       ) : null}
