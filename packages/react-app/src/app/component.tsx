@@ -7,9 +7,10 @@ import { Examine } from '../examine';
 import { Home } from '../home';
 import './styles.scss';
 
-const App: FunctionComponent = () => {
-  const location = useLocation();
+const tabs = { home: '/', examine: '/examine' };
 
+const App: FunctionComponent = () => {
+  const { pathname } = useLocation();
   return (
     <div className="app-container">
       <table>
@@ -18,26 +19,16 @@ const App: FunctionComponent = () => {
             <td>
               <h3>gLexicon</h3>
             </td>
-            <td>
-              <Link
-                to="/"
-                className={classNames({
-                  active: location.pathname === '/',
-                })}
-              >
-                | Home |
-              </Link>
-            </td>
-            <td>
-              <Link
-                to="/examine"
-                className={classNames({
-                  active: location.pathname === '/examine',
-                })}
-              >
-                | Examine |
-              </Link>
-            </td>
+            {Object.entries(tabs).map(([key, path]) => (
+              <td key={key}>
+                <Link
+                  to={path}
+                  className={classNames({ active: pathname === path })}
+                >
+                  {`| ${key.charAt(0).toUpperCase()}${key.substr(1)} |`}
+                </Link>
+              </td>
+            ))}
           </tr>
         </tbody>
       </table>
