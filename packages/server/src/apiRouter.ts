@@ -59,7 +59,6 @@ export default async function createApiRouter() {
       await writeTerms();
       res.send(String(id));
     });
-
   return router;
 
   function findIndex(id: number) {

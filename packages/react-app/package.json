@@ -5,10 +5,13 @@
   "dependencies": {
     "@glexicon/objects": "^1.0.0",
     "@glexicon/store": "^1.0.0",
+    "@types/classnames": "^2.2.10",
+    "classnames": "^2.2.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "tslib": "^2.0.0",
@@ -19,7 +22,8 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/react-redux": "^7.1.9",
-    "@types/react-router": "^5.1.8"
+    "@types/react-router": "^5.1.8",
+    "@types/react-router-dom": "^5.1.5"
   },
   "scripts": {
     "clean": "shx rm -rf lib && shx rm -f tsconfig.tsbuildinfo",

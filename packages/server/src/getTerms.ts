@@ -32,7 +32,7 @@ export default function ({
   }
   // Sort by name.
   array.sort(({ name: x }, { name: y }) => {
-    return x.localeCompare(y, void 0, { sensitivity: 'acccent' });
+    return x.localeCompare(y, undefined, { sensitivity: 'accent' });
   });
   return { total, terms: array, page, offset };
 }
