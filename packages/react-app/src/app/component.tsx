@@ -12,7 +12,7 @@ const App: FunctionComponent = () => {
 
   return (
     <div className="app-container">
-      <table style={{ margin: '0 auto' }}>
+      <table>
         <tbody>
           <tr>
             <td>

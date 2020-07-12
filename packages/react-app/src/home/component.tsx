@@ -1,13 +1,13 @@
 import { GetTermsResult } from '@glexicon/objects';
 import React, {
   ChangeEvent,
-  FormEvent,
   FunctionComponent,
   useCallback,
   useEffect,
   useState,
 } from 'react';
 import { Link } from 'react-router-dom';
+import { preventDefault } from '../preventDefault';
 import './styles.scss';
 
 const Home: FunctionComponent = () => {
@@ -33,31 +33,30 @@ const Home: FunctionComponent = () => {
 
   return (
     <div className="home-container">
-      <form onSubmit={preventSubmit} style={{ margin: '8px auto' }}>
-        <input type="text" onChange={onTextChanged} />
+      <form onSubmit={preventDefault}>
+        <input type="text" onChange={onTextChanged} autoFocus />
         <button type="submit" onClick={search}>
           Search
         </button>
+        <span>&nbsp;</span>
+        <Link to="edit">Create New Item...</Link>
       </form>
-      <div
-        style={{ margin: '0 auto', width: '800px', border: 'black 1px solid' }}
-      >
+      <div className="results">
         {results
-          ? results.terms.map(({ id, name, description }, index) => (
-              <div
-                style={{ background: index % 2 ? '#F0F0F0' : '#909090' }}
-                key={id}
-              >
-                <Link to={`edit?id=${id}`}>
-                  <h4 style={{ margin: '5px 0 0 0' }}>{name}</h4>
-                </Link>
-                <span style={{ fontSize: 14 }}>
-                  {description.length < 300
-                    ? description
-                    : `${description.substr(0, 300)}...`}
-                </span>
-              </div>
-            ))
+          ? results.terms.length
+            ? results.terms.map(({ id, name, description }, index) => (
+                <div className={index % 2 ? 'odd' : 'even'} key={id}>
+                  <Link to={`edit?id=${id}`}>
+                    <h4>{name}</h4>
+                  </Link>
+                  <span style={{ fontSize: 14 }}>
+                    {description.length < 300
+                      ? description
+                      : `${description.substr(0, 300)}...`}
+                  </span>
+                </div>
+              ))
+            : 'No Items Found!'
           : null}
       </div>
       {results ? (
@@ -70,7 +69,7 @@ const Home: FunctionComponent = () => {
                   {pageNumber}
                 </span>
               ) : (
-                <a href="#" onClick={goToPage.bind(undefined, pageNumber)}>
+                <a href="/#" onClick={goToPage.bind(undefined, pageNumber)}>
                   {pageNumber}
                 </a>
               )}
@@ -92,10 +91,6 @@ function getRange(pages: number) {
     array.push(page);
   }
   return array;
-}
-
-function preventSubmit(e: FormEvent) {
-  e.preventDefault();
 }
 
 async function getSearchResults(page: number, searchText?: string) {

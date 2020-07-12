@@ -35,15 +35,6 @@ export default async function createApiRouter() {
       }
       res.send(terms[index]);
     })
-    .post('/term/:id', jsonBodyParser, async ({ params, body }, res) => {
-      const id = Number(params.id);
-      const index = findIndex(id);
-      if (index < 0) {
-        return res.status(404).end();
-      }
-      terms[index] = { id, ...(body as TermData) };
-      await writeTerms();
-    })
     .delete('/term/:id', async ({ params }, res) => {
       const id = Number(params.id);
       const index = findIndex(id);
@@ -52,8 +43,19 @@ export default async function createApiRouter() {
       }
       terms.splice(index, 1);
       await writeTerms();
+      res.end();
     })
-    .put('/term', async ({ body }, res) => {
+    .post('/term/:id', jsonBodyParser, async ({ params, body }, res) => {
+      const id = Number(params.id);
+      const index = findIndex(id);
+      if (index < 0) {
+        return res.status(404).end();
+      }
+      const term = (terms[index] = { id, ...(body as TermData) });
+      await writeTerms();
+      res.send(term);
+    })
+    .put('/term', jsonBodyParser, async ({ body }, res) => {
       const id = ++maxId;
       terms.push({ id, ...(body as TermData) });
       await writeTerms();
