@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { EditComponent } from '../edit';
 import { ExamineComponent } from '../examine';
@@ -11,7 +11,13 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ExamineComponent, EditComponent],
-  imports: [FormsModule, BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [
+    ReactiveFormsModule,
+    FormsModule,
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+  ],
   providers: [TermsService],
   bootstrap: [AppComponent],
 })

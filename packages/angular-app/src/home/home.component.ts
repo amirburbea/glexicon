@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetTermsResult } from '@glexicon/objects';
 import { TermsService } from 'src/services';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,15 @@ import { TermsService } from 'src/services';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private termsService: TermsService) {}
+  private lastSearch?: string;
 
   results?: GetTermsResult;
-  searchText = '';
+
+  readonly form = new FormGroup({
+    searchText: new FormControl(''),
+  });
+
+  constructor(private termsService: TermsService) {}
 
   ngOnInit() {
     this.termsService
@@ -20,9 +26,12 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit() {
-    const { searchText, termsService } = this;
+    const { form, termsService } = this;
     termsService
-      .getTerms(PAGE_SIZE, searchText.trim() || undefined)
+      .getTerms(
+        PAGE_SIZE,
+        (this.lastSearch = form.get('searchText')!.value.trim() || undefined)
+      )
       .subscribe(res => (this.results = res));
   }
 
@@ -39,9 +48,9 @@ export class HomeComponent implements OnInit {
   }
 
   goToPage(page: number) {
-    const { searchText, termsService } = this;
+    const { lastSearch, termsService } = this;
     termsService
-      .getTerms(PAGE_SIZE, searchText.trim() || undefined, page)
+      .getTerms(PAGE_SIZE, lastSearch, page)
       .subscribe(res => (this.results = res));
   }
 }

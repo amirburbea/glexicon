@@ -1,6 +1,11 @@
 <div class="home-container">
-  <form (ngSubmit)="onSubmit()" #homeForm="ngForm">
-    <input type="text" [(ngModel)]="searchText" name="searchText" autofocus />
+  <form (ngSubmit)="onSubmit()" #homeForm="ngForm" [formGroup]="form">
+    <input
+      type="text"
+      name="searchText"
+      formControlName="searchText"
+      autofocus
+    />
     <button type="submit">Search</button>
     <span>&nbsp;</span>
     <a routerLink="/edit">Create New Item...</a>

@@ -1,1 +1,83 @@
-<p>edit works!</p>
+<form
+  class="edit-container"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  #editForm="ngForm"
+>
+  <h4 *ngIf="!id">New Item</h4>
+  <h4 *ngIf="id">{{ notFound ? id! + ' Not Found' : 'Edit Item #' + id! }}</h4>
+  <table *ngIf="!notFound"></table>
+  <div class="buttons"></div>
+</form>
+
+<!--
+
+  <form className="edit-container" onSubmit={preventDefault}>
+      <h4>
+        {!notFound ? (id ? `Edit Item #${id}` : 'New Item') : `${id} Not Found`}
+      </h4>
+      {!notFound && (
+        <>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <span>Title:</span>
+                </td>
+                <td>
+                  <input
+                    value={name}
+                    type="text"
+                    onChange={e => setName(e.currentTarget.value)}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span>Description:</span>
+                </td>
+                <td>
+                  <textarea
+                    rows={6}
+                    value={description}
+                    onChange={e => setDescription(e.currentTarget.value)}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span>Aliases (separated by semicolons):</span>
+                </td>
+                <td>
+                  <input
+                    value={aliases}
+                    type="text"
+                    onChange={e => setAliases(e.currentTarget.value)}
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div className="buttons">
+            <button
+              type="submit"
+              onClick={submitTerm}
+              disabled={isEmpty(name) || isEmpty(description)}
+            >
+              Submit
+            </button>
+            <button type="reset" onClick={reset}>
+              Reset
+            </button>
+            {id && (
+              <button type="button" onClick={deleteTerm}>
+                Delete
+              </button>
+            )}
+          </div>
+        </>
+      )}
+    </form>
+  );
+
+  -->
