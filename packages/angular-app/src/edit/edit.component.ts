@@ -70,5 +70,6 @@ export class EditComponent implements OnInit, OnDestroy {
     if (form.invalid) {
       return;
     }
+    console.log(id, form);
   };
 }
