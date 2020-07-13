@@ -4,7 +4,8 @@
   "scripts": {
     "transpile": "tsc -b packages/tsconfig.json",
     "clean": "lerna run clean --parallel",
-    "start": "yarn transpile && concurrently \"lerna run --stream --scope '*/server' start\" \"lerna run --scope '*/react-app' start\""
+    "start:ng": "yarn transpile && concurrently \"lerna run --stream --scope '*/server' start\" \"lerna run --scope '*/angular-app' start\"",
+    "start:react": "yarn transpile && concurrently \"lerna run --stream --scope '*/server' start\" \"lerna run --scope '*/react-app' start\""
   },
   "devDependencies": {
     "concurrently": "^5.2.0",

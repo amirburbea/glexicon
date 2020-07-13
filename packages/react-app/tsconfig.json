@@ -7,14 +7,11 @@
     "noEmit": true,
     "incremental": false
   },
-  "include": [
-    "src"
-  ],
+  "include": ["src"],
   "extends": "../tsconfig.base.json",
   "references": [
     {
       "path": "../objects"
-    },
-    {"path": "../store"}
+    }
   ]
 }

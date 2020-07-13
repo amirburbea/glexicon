@@ -1,0 +1,13 @@
+.app-container {
+  h3 {
+    text-decoration: underline;
+  }
+
+  a.active {
+    font-weight: bold;
+  }
+
+  > table {
+    margin: 0 auto;
+  }
+}

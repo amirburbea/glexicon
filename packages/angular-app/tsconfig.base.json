@@ -1,16 +1,9 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true
+    "outDir": "./dist/out-tsc"
   },
-  "angularCompilerOptions": {
-    "strictInjectionParameters": true,
-    "strictTemplates": true
-  },
-  "references": [{ "path": "../objects" },{ "path": "../store" }]
+  "references": [{ "path": "../objects" }],
+  "extends": "../tsconfig.base.json"
 }

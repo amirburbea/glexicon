@@ -2,7 +2,7 @@
   "name": "@glexicon/angular-app",
   "version": "0.0.0",
   "scripts": {
-    "clean": "shx rm -rf out-tsc",
+    "clean": "shx rm -rf lib out-tsc && shx rm -f tsconfig.tsbuildinfo",
     "transpile": "tsc -b",
     "ng": "ng",
     "start": "ng serve",
@@ -22,7 +22,6 @@
     "@angular/platform-browser-dynamic": "~10.0.3",
     "@angular/router": "~10.0.3",
     "@glexicon/objects": "^1.0.0",
-    "@glexicon/store": "^1.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
