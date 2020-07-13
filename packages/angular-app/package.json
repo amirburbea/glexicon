@@ -5,7 +5,7 @@
     "clean": "shx rm -rf lib out-tsc && shx rm -f tsconfig.tsbuildinfo",
     "transpile": "tsc -b",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --open",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
