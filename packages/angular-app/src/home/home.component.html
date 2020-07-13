@@ -1,1 +1,35 @@
-<p>home works!</p>
+<div class="home-container">
+  <form (ngSubmit)="onSubmit()" #homeForm="ngForm">
+    <input type="text" [(ngModel)]="searchText" name="searchText" autofocus />
+    <button type="submit">Search</button>
+    <span>&nbsp;</span>
+    <a routerLink="/edit">Create New Item...</a>
+  </form>
+  <div class="results" *ngIf="results">
+    <span *ngIf="!results.terms.length">No Results</span>
+    <div
+      *ngFor="let term of results.terms; let i = index"
+      [class]="i % 2 ? 'odd' : 'even'"
+    >
+      <a routerLink="/edit/{{ term.id }}">
+        <h4>{{ term.name }}</h4>
+      </a>
+      <span>
+        {{
+          term.description.length < 300
+            ? term.description
+            : term.description.substr(0, 300) + '...'
+        }}
+      </span>
+    </div>
+  </div>
+  <div class="pages" *ngIf="results">
+    <ng-container *ngFor="let page of getPagesRange()">
+      &nbsp;
+      <span *ngIf="page === results.page">{{ page }}</span>
+      <a *ngIf="page !== results.page" href="/#" (click)="goToPage(page)">{{
+        page
+      }}</a>
+    </ng-container>
+  </div>
+</div>

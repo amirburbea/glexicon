@@ -42,24 +42,26 @@ const Home: FunctionComponent = () => {
         <span>&nbsp;</span>
         <Link to="edit">Create New Item...</Link>
       </form>
-      <div className="results">
-        {results
-          ? results.terms.length
-            ? results.terms.map(({ id, name, description }, index) => (
-                <div className={index % 2 ? 'odd' : 'even'} key={id}>
-                  <Link to={`edit/${id}`}>
-                    <h4>{name}</h4>
-                  </Link>
-                  <span>
-                    {description.length < 300
-                      ? description
-                      : `${description.substr(0, 300)}...`}
-                  </span>
-                </div>
-              ))
-            : 'No Items Found!'
-          : null}
-      </div>
+      {results ? (
+        <div className="results">
+          {results.terms.length ? (
+            results.terms.map(({ id, name, description }, index) => (
+              <div className={index % 2 ? 'odd' : 'even'} key={id}>
+                <Link to={`edit/${id}`}>
+                  <h4>{name}</h4>
+                </Link>
+                <span>
+                  {description.length < 300
+                    ? description
+                    : `${description.substr(0, 300)}...`}
+                </span>
+              </div>
+            ))
+          ) : (
+            <span>No Items Found!</span>
+          )}
+        </div>
+      ) : null}
       {results ? (
         <div className="pages">
           {getRange(Math.ceil(results.total / PAGE_SIZE)).map(pageNumber => (

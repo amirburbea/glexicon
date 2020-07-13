@@ -1,0 +1,41 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+
+  > form {
+    margin: 8px auto;
+  }
+
+  > .results {
+    margin: 0 auto;
+    width: 800px;
+    border: black 1px solid;
+
+    > div {
+      &.even {
+        background-color: #f0f0f0;
+      }
+
+      &.odd {
+        background-color: #909090;
+      }
+
+      > a > h4 {
+        margin: 5px 0 0 0;
+      }
+
+      > span {
+        font-size: 14;
+      }
+    }
+  }
+
+  > .pages {
+    margin: 0 auto;
+
+    > span {
+      font-weight: bold;
+      font-size: 14pt;
+    }
+  }
+}
