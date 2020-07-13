@@ -47,7 +47,7 @@ const Home: FunctionComponent = () => {
           ? results.terms.length
             ? results.terms.map(({ id, name, description }, index) => (
                 <div className={index % 2 ? 'odd' : 'even'} key={id}>
-                  <Link to={`edit?id=${id}`}>
+                  <Link to={`edit/${id}`}>
                     <h4>{name}</h4>
                   </Link>
                   <span>

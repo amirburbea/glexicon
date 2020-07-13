@@ -20,10 +20,7 @@ const Edit: FunctionComponent = () => {
   const [aliases, setAliases] = useState('');
 
   useEffect(() => {
-    if (typeof history.location.search !== 'string') {
-      return;
-    }
-    const match = /[?&]id=(\d+)(&.+)?$/.exec(history.location.search);
+    const match = /\/(\d+)/.exec(history.location.pathname);
     if (match) {
       const [, id] = match;
       setId(Number.parseInt(id));
@@ -175,6 +172,6 @@ async function submit(
   if (id) {
     setTerm(await response.json());
   } else {
-    history.push(`/edit?id=${await response.text()}`);
+    history.push(`/edit/${await response.text()}`);
   }
 }
