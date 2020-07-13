@@ -82,7 +82,7 @@ const Home: FunctionComponent = () => {
 
 export default Home;
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 2;
 
 function getRange(pages: number) {
   const array = [];

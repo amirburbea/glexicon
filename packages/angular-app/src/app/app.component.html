@@ -5,13 +5,13 @@
         <td>
           <h3>{{ title }}</h3>
         </td>
-        <td *ngFor="let entry of tabs | keyvalue: 0">
+        <td *ngFor="let entry of tabs | keyvalue : 0">
           <a
-            routerLink="{{ entry.value }}"
+            [routerLink]="entry.value"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
           >
-            {{ entry.key.charAt(0).toUpperCase() + entry.key.substr(1) }}
+            | {{ entry.key.charAt(0).toUpperCase() + entry.key.substr(1) }} |
           </a>
         </td>
       </tr>

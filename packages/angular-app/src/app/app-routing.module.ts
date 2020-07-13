@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditComponent } from 'src/edit';
+import { EditComponent } from '../edit';
 import { ExamineComponent } from '../examine';
 import { HomeComponent } from '../home';
 
 const routes: Routes = [
+  { path: 'home', component: HomeComponent },
   { path: 'examine', component: ExamineComponent },
   { path: 'edit', component: EditComponent },
-  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch:'full'},
+  //{ path: 'edit/:id', component: EditComponent }, // Why is this needed??
   { path: '**', redirectTo: '/' },
 ];
 

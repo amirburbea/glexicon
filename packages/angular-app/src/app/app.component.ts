@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  readonly tabs = { home: '/', examine: '/examine' };
+  readonly tabs = { home: '/home', examine: '/examine' };
 
   readonly title = 'gLexicon';
 }
